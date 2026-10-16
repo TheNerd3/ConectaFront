@@ -1,0 +1,10 @@
+/* Identidad por rol (ver prototipo de diseño) */
+:root {
+  --employee-primary: #0f2e29;
+  --employee-accent: #d97757;
+  --employer-primary: #d97757;
+  --employer-accent: #0f2e29;
+  --admin-primary: #2b2a28;
+  --admin-accent: #c9a227;
+  --bg: #ede7d8;
+}
