@@ -13,6 +13,10 @@ export interface AuthContextValue {
   verify2fa: (challengeToken: string, code: string) => Promise<AuthUser>;
   registerEmployee: (data: { email: string; password: string; fullName: string }) => Promise<AuthUser>;
   registerEmployer: (data: { email: string; password: string; companyName: string }) => Promise<AuthUser>;
+  /** Canjea el código de un solo uso que deja el login con Google/GitHub. */
+  loginWithOAuthCode: (code: string) => Promise<AuthUser>;
+  completeEmployerSignup: (signupToken: string, companyName: string) => Promise<AuthUser>;
+  resetPassword: (token: string, password: string) => Promise<AuthUser>;
   logout: () => void;
 }
 

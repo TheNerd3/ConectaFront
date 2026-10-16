@@ -69,6 +69,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         startSession((await authService.verify2fa(challengeToken, code)).accessToken),
       registerEmployee: async (data) => startSession((await authService.registerEmployee(data)).accessToken),
       registerEmployer: async (data) => startSession((await authService.registerEmployer(data)).accessToken),
+      loginWithOAuthCode: async (code) => startSession((await authService.exchangeOAuthCode(code)).accessToken),
+      completeEmployerSignup: async (signupToken, companyName) =>
+        startSession((await authService.completeEmployerSignup(signupToken, companyName)).accessToken),
+      resetPassword: async (token, password) =>
+        startSession((await authService.resetPassword(token, password)).accessToken),
     }),
     [user, status, logout, startSession],
   );
