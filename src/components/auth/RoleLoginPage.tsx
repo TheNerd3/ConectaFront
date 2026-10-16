@@ -3,18 +3,18 @@ import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import { ApiError } from '../../services/api';
 import { homeAfterLogin, ROLE_HOME, ROLE_LOGIN } from '../../routes/roles';
-import { AuthLayout, type BrandContent } from './AuthLayout';
+import { AuthLayout } from './AuthLayout';
+import { BRAND, SIDE_PARAM, type Side } from './brandContent';
 import { FormAlert } from './FormAlert';
 import { PasswordField } from './PasswordField';
+import { SocialLogin } from './SocialLogin';
 import { TextField } from './TextField';
 import { hasErrors, validateEmail, validateName, validatePassword, type FieldErrors } from './validation';
 
-type Side = 'employee' | 'employer';
 type Mode = 'login' | 'register';
 type Field = 'email' | 'password' | 'name';
 
 interface SideCopy {
-  brand: BrandContent;
   login: { heading: string; subheading: string; cta: string; footer: string; footerLink: string };
   register: { heading: string; subheading: string; cta: string; footer: string; footerLink: string };
   emailPlaceholder: string;
@@ -23,19 +23,9 @@ interface SideCopy {
   nameError: string;
 }
 
-// Textos del prototipo (docs/prototype/Main.dc.html y MainEmpleador.dc.html).
+// Textos del formulario (docs/prototype/Main.dc.html y MainEmpleador.dc.html).
 const COPY: Record<Side, SideCopy> = {
   employee: {
-    brand: {
-      badge: 'Sin filtros de IA',
-      headline: 'Buscá trabajo sin que un algoritmo te descarte primero.',
-      subtext: 'Cada postulación la revisa una persona. Y vos ves en todo momento en qué estado está cada una.',
-      bullets: [
-        { icon: 'checkCircle', text: 'Seguimiento claro del estado de cada postulación' },
-        { icon: 'checkCircle', text: 'Match por habilidades reales, no por palabras exactas' },
-        { icon: 'checkCircle', text: 'Un solo perfil, postulate con un clic' },
-      ],
-    },
     login: {
       heading: 'Bienvenido de nuevo',
       subheading: 'Entrá y seguí tus postulaciones.',
@@ -56,17 +46,6 @@ const COPY: Record<Side, SideCopy> = {
     nameError: 'Ingresá tu nombre completo',
   },
   employer: {
-    brand: {
-      badge: 'Para empresas',
-      headline: 'Encontrá talento sin perder lo humano en el proceso.',
-      subtext: 'Tu equipo revisa cada postulante a mano. Transparencia total con cada candidato, en cada etapa.',
-      bullets: [
-        { icon: 'checkCircle', text: 'Cada candidato lo revisa una persona de tu equipo, no un filtro automático' },
-        { icon: 'checkCircle', text: 'Pipeline claro por etapas: revisión, entrevista, contratado' },
-        // El prototipo decía "motivo de rechazo obligatorio"; la regla del producto es que sea opcional.
-        { icon: 'checkCircle', text: 'Motivos de rechazo listos para dar feedback real a cada candidato' },
-      ],
-    },
     login: {
       heading: 'Portal de empresas',
       subheading: 'Entrá y gestioná tus búsquedas.',
@@ -158,7 +137,7 @@ export function RoleLoginPage({ side, mode }: Props) {
   }
 
   return (
-    <AuthLayout theme={side} brand={copy.brand}>
+    <AuthLayout theme={side} brand={BRAND[side]}>
       <nav className="role-toggle" aria-label="Tipo de cuenta">
         <Link
           to={PATHS.employee[mode]}
@@ -215,10 +194,18 @@ export function RoleLoginPage({ side, mode }: Props) {
           maxLength={128}
         />
 
+        {!isRegister && (
+          <div className="auth__forgot">
+            <Link to={`/recuperar-contrasena?perfil=${SIDE_PARAM[side]}`}>¿Olvidaste tu contraseña?</Link>
+          </div>
+        )}
+
         <button type="submit" className="auth__cta" disabled={submitting} aria-busy={submitting}>
           {submitting ? (isRegister ? 'Creando cuenta…' : 'Ingresando…') : text.cta}
         </button>
       </form>
+
+      <SocialLogin role={side === 'employee' ? 'EMPLOYEE' : 'EMPLOYER'} />
 
       <p className="auth__footer">
         {text.footer} <Link to={PATHS[side][isRegister ? 'login' : 'register']}>{text.footerLink}</Link>

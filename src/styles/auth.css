@@ -365,9 +365,83 @@
   cursor: pointer;
 }
 
+/* Link con aspecto de botón principal */
+.auth .auth__cta--link {
+  margin-top: 16px;
+  color: var(--cta-fg);
+  text-decoration: none;
+}
+
+.auth .auth__cta--link:hover {
+  color: var(--cta-fg);
+  text-decoration: none;
+  filter: brightness(1.08);
+}
+
 .auth__cta:disabled {
   opacity: 0.7;
   cursor: progress;
+}
+
+.auth__forgot {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -4px;
+  font-size: 13px;
+}
+
+/* "o continuá con" + Google / GitHub */
+.auth__divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0 14px;
+  font-size: 12px;
+  color: var(--placeholder);
+}
+
+.auth__divider::before,
+.auth__divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--divider);
+}
+
+.social-login {
+  display: flex;
+  gap: 10px;
+}
+
+.auth .social-login__button {
+  flex: 1;
+  padding: 12px 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.auth .social-login__button:hover {
+  color: var(--text);
+  text-decoration: none;
+  background: var(--surface-muted);
+}
+
+.form-notice {
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #e8f1ee;
+  color: var(--employee-primary);
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .auth__footer {
