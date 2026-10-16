@@ -1,0 +1,480 @@
+/* Pantallas de login (migradas de docs/prototype/Main, MainEmpleador y AdminLogin). */
+
+/* ── Paleta por rol ─────────────────────────────────────────── */
+.auth--employee {
+  --frame-bg: var(--employee-primary);
+  --frame-shadow: 0 30px 60px -20px rgba(15, 46, 41, 0.35);
+  --panel-bg: var(--employee-panel);
+  --logo-bg: var(--employee-accent);
+  --logo-fg: var(--employee-primary);
+  --badge-color: var(--employee-accent);
+  --badge-border: rgba(217, 119, 87, 0.4);
+  --bullet-icon: #9fbfb6;
+  --copyright: #7e8a85;
+  --cta-bg: var(--employee-primary);
+  --cta-fg: #ffffff;
+  --focus: #0f4c44;
+  --focus-ring: rgba(15, 76, 68, 0.12);
+}
+
+.auth--employer {
+  --frame-bg: var(--employer-primary);
+  --frame-shadow: 0 30px 60px -20px rgba(166, 74, 45, 0.35);
+  --panel-bg: var(--employer-panel);
+  --logo-bg: var(--employer-accent);
+  --logo-fg: #ffffff;
+  --badge-color: var(--employer-accent);
+  --badge-border: rgba(15, 46, 41, 0.35);
+  --bullet-icon: var(--employer-accent);
+  --copyright: #4a2213;
+  /* El botón del prototipo es terracota con texto blanco (≈3:1); se oscurece apenas para llegar a AA. */
+  --cta-bg: #b85a39;
+  --cta-fg: #ffffff;
+  --focus: #0f4c44;
+  --focus-ring: rgba(15, 76, 68, 0.12);
+}
+
+.auth--admin {
+  --frame-bg: var(--admin-primary);
+  --frame-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.4);
+  --panel-bg: var(--admin-panel);
+  --logo-bg: var(--employee-primary);
+  --logo-fg: #ffffff;
+  --badge-color: var(--admin-accent);
+  --badge-border: rgba(201, 162, 39, 0.4);
+  --bullet-icon: var(--admin-accent);
+  --copyright: #7e7a72;
+  --cta-bg: var(--admin-primary);
+  --cta-fg: #ffffff;
+  --focus: var(--admin-primary);
+  --focus-ring: rgba(43, 42, 40, 0.12);
+}
+
+/* ── Marco ──────────────────────────────────────────────────── */
+.auth {
+  min-height: 100vh;
+  background: var(--bg);
+  padding: 36px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  color: var(--text);
+}
+
+.auth__frame {
+  width: 100%;
+  max-width: 1320px;
+  min-height: min(828px, calc(100vh - 72px));
+  background: var(--frame-bg);
+  border-radius: 28px;
+  padding: 14px;
+  box-shadow: var(--frame-shadow);
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  transition: background 0.2s;
+}
+
+/* ── Panel de marca ─────────────────────────────────────────── */
+.auth__brand {
+  flex: 1 1 480px;
+  min-width: 0;
+  color: var(--on-dark);
+  padding: 56px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  box-sizing: border-box;
+  background: var(--panel-bg);
+  border-radius: 20px;
+  transition: background 0.2s;
+}
+
+.auth__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.auth__logo-mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--logo-bg);
+  color: var(--logo-fg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.auth__logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.auth__pitch {
+  max-width: 460px;
+}
+
+.auth__badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--badge-color);
+  border: 1px solid var(--badge-border);
+  border-radius: 100px;
+  padding: 6px 14px;
+  margin-bottom: 24px;
+}
+
+.auth__headline {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 40px;
+  line-height: 1.15;
+  font-weight: 400;
+  margin: 0 0 18px;
+  color: #ffffff;
+}
+
+.auth__subtext {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--on-dark-muted);
+  margin: 0 0 30px;
+}
+
+/* Sobre el panel terracota, el texto claro del prototipo quedaba por debajo de 3:1; se usa blanco. */
+.auth--employer .auth__subtext {
+  color: #ffffff;
+}
+
+.auth__bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.auth__bullets li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 14px;
+  color: var(--on-dark-soft);
+}
+
+.auth--employer .auth__bullets li {
+  color: #ffffff;
+}
+
+.auth__bullet-icon {
+  flex: none;
+  margin-top: 2px;
+  color: var(--bullet-icon);
+}
+
+.auth__copyright {
+  font-size: 13px;
+  color: var(--copyright);
+  margin: 0;
+}
+
+/* ── Panel del formulario ───────────────────────────────────── */
+.auth__panel {
+  flex: 1 1 480px;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 40px;
+  box-sizing: border-box;
+  background: var(--surface);
+  border-radius: 20px;
+}
+
+.auth__form-wrap {
+  width: 100%;
+  max-width: 380px;
+}
+
+.auth__heading {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 6px;
+}
+
+.auth__subheading {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 0 0 26px;
+}
+
+.auth__form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.auth__lock-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--admin-primary);
+  color: var(--admin-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Toggle "Busco empleo / Busco talento" */
+.role-toggle {
+  display: flex;
+  background: var(--surface-muted);
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 30px;
+}
+
+.role-toggle__option {
+  flex: 1;
+  border-radius: 9px;
+  padding: 11px 0;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text-subtle);
+  transition: all 0.15s;
+}
+
+.role-toggle__option:hover {
+  color: var(--employee-primary);
+  text-decoration: none;
+}
+
+.role-toggle__option[aria-current='page'] {
+  background: var(--surface);
+  color: var(--employee-primary);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+/* Campos */
+.field__label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-label);
+  margin-bottom: 6px;
+}
+
+.field__control {
+  position: relative;
+}
+
+.field__input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font: inherit;
+  font-size: 14px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.field__input::placeholder {
+  color: var(--placeholder);
+}
+
+.field__input:focus {
+  outline: none;
+  border-color: var(--focus);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.field__input[aria-invalid='true'] {
+  border-color: var(--error);
+}
+
+.field__input--trailing {
+  padding-right: 44px;
+}
+
+.field__input--code {
+  letter-spacing: 0.1em;
+}
+
+.field__toggle {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.field__error {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--error);
+}
+
+.form-alert {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--error-bg);
+  color: var(--error);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Botón principal */
+.auth__cta {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 0;
+  border: none;
+  border-radius: 10px;
+  background: var(--cta-bg);
+  color: var(--cta-fg);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 4px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.auth__cta:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.auth__footer {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 22px;
+}
+
+.auth a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.auth a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+.auth__footer a {
+  font-weight: 600;
+}
+
+/* Foco visible para teclado en todos los controles */
+.auth a:focus-visible,
+.auth button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* ── Placeholder de inicio por rol ──────────────────────────── */
+.home-placeholder {
+  margin: auto;
+  max-width: 520px;
+  width: 100%;
+  background: var(--surface);
+  border-top: 6px solid var(--frame-bg);
+  border-radius: 20px;
+  box-shadow: var(--frame-shadow);
+  padding: 40px 32px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.home-placeholder__title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  font-size: 32px;
+  margin: 8px 0 0;
+}
+
+.home-placeholder__text,
+.home-placeholder__user {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.home-placeholder__logout {
+  max-width: 240px;
+  margin-top: 16px;
+}
+
+.route-loading {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  margin: 0;
+  color: var(--text-muted);
+}
+
+/* ── Responsive (~400px) ────────────────────────────────────── */
+@media (max-width: 720px) {
+  .auth {
+    padding: 12px;
+  }
+
+  .auth__frame {
+    min-height: 0;
+    border-radius: 22px;
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .auth__brand {
+    padding: 28px 24px;
+    gap: 20px;
+  }
+
+  .auth__headline {
+    font-size: 28px;
+  }
+
+  .auth__subtext {
+    margin-bottom: 20px;
+  }
+
+  .auth__panel {
+    padding: 32px 20px;
+  }
+
+  .home-placeholder {
+    padding: 32px 20px;
+  }
+}

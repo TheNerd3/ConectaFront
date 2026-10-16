@@ -1,10 +1,31 @@
-/* Identidad por rol (ver prototipo de diseño) */
+/* Identidad por rol (ver prototipo de diseño en docs/prototype/) */
 :root {
   --employee-primary: #0f2e29;
   --employee-accent: #d97757;
+  --employee-panel: #15362f;
   --employer-primary: #d97757;
   --employer-accent: #0f2e29;
+  --employer-panel: #c96a46;
   --admin-primary: #2b2a28;
   --admin-accent: #c9a227;
+  --admin-panel: #1e1d1b;
   --bg: #ede7d8;
+
+  /* Neutros compartidos */
+  --surface: #ffffff;
+  --surface-muted: #efeae0;
+  --text: #1c1b18;
+  --text-label: #3d3a33;
+  --text-muted: #726c60;
+  --text-subtle: #8a8475;
+  --placeholder: #9b9488;
+  --border: #ddd6c7;
+  --divider: #e4dfd2;
+  --link: #0f4c44;
+  --link-hover: #0a332d;
+  --error: #b42318;
+  --error-bg: #fdecea;
+  --on-dark: #f3efe6;
+  --on-dark-muted: #c7c0b2;
+  --on-dark-soft: #e3dfd3;
 }
