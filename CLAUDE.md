@@ -1,5 +1,9 @@
 # Conecta · Frontend (ConectaFront)
 
+## Regla #1: autoría
+- El único autor de este proyecto es Sol. **Nunca** agregar a Claude como autor ni colaborador: sin `Co-Authored-By`, sin `Claude-Session`, sin "Generated with Claude Code" ni firmas en commits, PRs, código, README o docs.
+- Los commits van con la identidad git de Sol (`git config user.name` / `user.email`); no cambiarla.
+
 ## Qué es
 Interfaz de una plataforma de búsqueda laboral con tres roles (empleado, empleador, admin). Proyecto personal de portfolio. Diferenciador: **sin filtrado por IA** y **estado de postulación siempre visible**.
 Backend: repo ConectaBack (NestJS, API en `/api`, Swagger en `/docs`).
