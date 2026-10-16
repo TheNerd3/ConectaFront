@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Mi perfil</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body { margin: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  a { color: #0F4C44; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; }
+  .icon-btn { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex: none; }
+  .tabbtn { border: none; background: transparent; font-size: 14px; font-weight: 600; padding: 10px 4px; border-bottom: 2px solid transparent; }
+  .scrollarea::-webkit-scrollbar { width: 8px; }
+  .scrollarea::-webkit-scrollbar-thumb { background: #DDD6C7; border-radius: 10px; }
+</style>
+</helmet>
+
+<div style="width: 100%; height: 900px; background: #EDE7D8; padding: 36px; box-sizing: border-box; display: flex; align-items: flex-start; justify-content: center; overflow: hidden;">
+
+  <div style="width: 100%; max-width: 1320px; height: 100%; background: #0F2E29; border-radius: 28px; padding: 14px; display: flex; gap: 14px; box-shadow: 0 30px 60px -20px rgba(15,46,41,0.35); box-sizing: border-box;">
+
+    <!-- icon-only rail -->
+    <div style="flex: 0 0 64px; display: flex; flex-direction: column; align-items: center; padding: 10px 0; gap: 10px; position: relative;">
+      <div style="width: 34px; height: 34px; border-radius: 9px; background: #D97757; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; flex: none;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F2E29" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"></path></svg>
+      </div>
+
+      <a href="BuscarEmpleo.dc.html" class="icon-btn" style="color: #9FBFB6;" title="Buscar empleo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="M21 21l-4.35-4.35"></path></svg>
+      </a>
+      <a href="Dashboard.dc.html" class="icon-btn" style="color: #9FBFB6;" title="Mis postulaciones">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path></svg>
+      </a>
+      <div class="icon-btn" style="color: #9FBFB6;" title="Calendario">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>
+      </div>
+      <a href="AnalizadorCV.dc.html" class="icon-btn" style="color: #9FBFB6;" title="Analizador de CV">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path><path d="M14 2v6h6"></path><path d="M9 15l2 2 4-4"></path></svg>
+      </a>
+
+      <!-- ACTIVE item: Mi perfil -->
+      <div style="width: 60px; height: 48px; border-radius: 14px; background: #FFFFFF; color: #0F2E29; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 14px rgba(0,0,0,0.2); flex: none;" title="Mi perfil">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+      </div>
+
+      <a href="Chat.dc.html" class="icon-btn" style="color: #9FBFB6;" title="Mensajes">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"></path></svg>
+      </a>
+      <div class="icon-btn" style="color: #9FBFB6;" title="Configuración">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.65 1.65 0 004.6 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.6a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"></path></svg>
+      </div>
+
+      <div style="margin-top: auto;">
+        <div style="width: 34px; height: 34px; border-radius: 50%; background: #D97757; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #fff;">SC</div>
+      </div>
+    </div>
+
+    <!-- content: fixed height, internal scroll -->
+    <div style="flex: 1 1 0; min-width: 0; height: 100%; background: #FFFFFF; border-radius: 20px; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden;">
+
+      <!-- fixed header: profile summary + tabs -->
+      <div style="padding: 28px 36px 0; flex: none;">
+        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+          <div style="width: 56px; height: 56px; border-radius: 50%; background: #D97757; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: #fff; flex: none;">SC</div>
+          <div style="flex: 1; min-width: 0;">
+            <h1 style="font-size: 20px; font-weight: 700; color: #1C1B18; margin: 0 0 2px;">Sol Checa</h1>
+            <p style="font-size: 13px; color: #726C60; margin: 0;">Full Stack Developer · Córdoba, AR</p>
+          </div>
+          <button style="flex: none; border: 1px solid #DDD6C7; background: #fff; color: #3D3A33; font-size: 13px; font-weight: 600; padding: 9px 16px; border-radius: 10px;">Editar perfil</button>
+        </div>
+
+        <div style="display: flex; gap: 22px; border-bottom: 1px solid #EFEBE0;">
+          <button onClick="{{tabPerfil}}" class="tabbtn" style="color: {{colorPerfil}}; border-color: {{borderPerfil}};">Perfil y skills</button>
+          <button onClick="{{tabCvs}}" class="tabbtn" style="color: {{colorCvs}}; border-color: {{borderCvs}};">Mis CVs</button>
+          <button onClick="{{tabCartas}}" class="tabbtn" style="color: {{colorCartas}}; border-color: {{borderCartas}};">Cartas de presentación</button>
+          <button onClick="{{tabEmpresas}}" class="tabbtn" style="color: {{colorEmpresas}}; border-color: {{borderEmpresas}};">Empresas que sigo</button>
+        </div>
+      </div>
+
+      <!-- ============ TAB: PERFIL Y SKILLS ============ -->
+      <sc-if value="{{isPerfil}}" hint-placeholder-val="{{true}}">
+        <div class="scrollarea" style="flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 22px 36px 28px;">
+
+          <div style="margin-bottom: 24px;">
+            <h2 style="font-size: 14px; font-weight: 700; color: #1C1B18; margin: 0 0 10px;">Sobre mí</h2>
+            <p style="font-size: 13px; line-height: 1.6; color: #4D4A42; margin: 0; max-width: 640px;">
+              Estudiante avanzada de Ingeniería en Informática. Experiencia construyendo sistemas web de gestión (RRHH, pagos, lotería) y un año de práctica profesional como Full Stack Developer. Me interesan los equipos que revisan el código entre pares y dan feedback real.
+            </p>
+          </div>
+
+          <div style="margin-bottom: 24px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; gap: 12px;">
+              <h2 style="font-size: 14px; font-weight: 700; color: #1C1B18; margin: 0;">Skills</h2>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="font-size: 12px; color: #9B9488;">Verificar es opcional — suma un sello, nunca penaliza si no lo hacés</span>
+                <button onClick="{{addSkill}}" style="flex: none; font-size: 12px; font-weight: 600; color: #fff; background: #0F2E29; border: none; padding: 7px 14px; border-radius: 100px; white-space: nowrap;">+ Agregar skill</button>
+              </div>
+            </div>
+
+            <sc-if value="{{isAddingSkill}}" hint-placeholder-val="{{false}}">
+              <div style="display: flex; gap: 8px; margin-bottom: 10px;">
+                <input type="text" placeholder="Ej: Docker, AWS, Python..." style="flex: 1; box-sizing: border-box; padding: 9px 12px; border: 1px solid #DDD6C7; border-radius: 8px; font-size: 13px; color: #1C1B18;">
+                <button onClick="{{confirmAddSkill}}" style="font-size: 12px; font-weight: 600; color: #fff; background: #0F2E29; border: none; padding: 0 16px; border-radius: 8px;">Agregar</button>
+                <button onClick="{{cancelAddSkill}}" style="font-size: 12px; font-weight: 600; color: #726C60; background: #fff; border: 1px solid #DDD6C7; padding: 0 14px; border-radius: 8px;">Cancelar</button>
+              </div>
+            </sc-if>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <sc-for list="{{skills}}" as="s" hint-placeholder-count="6">
+                <div style="display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: #FAF8F3; border-radius: 10px;">
+                  <span style="font-size: 13px; font-weight: 600; color: #1C1B18; flex: 1;">{{s.name}}</span>
+                  <sc-if value="{{s.verified}}" hint-placeholder-val="{{true}}">
+                    <span style="display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; color: #1D7A4C; background: #E6F6EC; padding: 5px 10px; border-radius: 100px;">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="#1D7A4C" stroke="#fff" stroke-width="1.5"><path d="M12 2l2.4 1.9 3-.5 1 2.9 2.7 1.4-.9 3 1.7 2.5-2.4 2 .1 3-3 .4-1.6 2.5-2.9-.9-2.9.9-1.6-2.5-3-.4.1-3-2.4-2 1.7-2.5-.9-3 2.7-1.4 1-2.9 3 .5z"></path></svg>
+                      Verificado
+                    </span>
+                  </sc-if>
+                  <sc-if value="{{s.showVerifyBtn}}" hint-placeholder-val="{{false}}">
+                    <button onClick="{{s.startVerify}}" style="font-size: 12px; font-weight: 600; color: #0F2E29; background: #fff; border: 1px solid #DDD6C7; padding: 6px 12px; border-radius: 100px;">Verificar</button>
+                  </sc-if>
+                </div>
+
+                <sc-if value="{{s.isVerifying}}" hint-placeholder-val="{{s.demoQuiz}}">
+                  <div style="background: #F7F4EC; border-radius: 12px; padding: 18px 20px; margin: -2px 0 2px; border: 1px solid #EFEBE0;">
+                    <div style="font-size: 12px; font-weight: 700; color: #726C60; margin-bottom: 14px; letter-spacing: 0.03em;">CUESTIONARIO RÁPIDO · {{s.name}}</div>
+
+                    <!-- Pregunta 1: la pregunta arriba, cada opción abajo de la anterior -->
+                    <div style="margin-bottom: 18px;">
+                      <div style="font-size: 13px; font-weight: 600; color: #1C1B18; margin-bottom: 10px;">1. {{s.q1}}</div>
+                      <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <sc-for list="{{s.q1options}}" as="opt" hint-placeholder-count="3">
+                          <label style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 9px; border: 1px solid #DDD6C7; background: #fff; cursor: pointer;">
+                            <span style="width: 16px; height: 16px; border-radius: 50%; border: 2px solid #C7C0B2; flex: none;"></span>
+                            <span style="font-size: 13px; color: #3D3A33;">{{opt}}</span>
+                          </label>
+                        </sc-for>
+                      </div>
+                    </div>
+
+                    <!-- Pregunta 2: debajo de la pregunta 1 y de sus opciones, mismo criterio -->
+                    <div style="margin-bottom: 18px;">
+                      <div style="font-size: 13px; font-weight: 600; color: #1C1B18; margin-bottom: 10px;">2. {{s.q2}}</div>
+                      <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <sc-for list="{{s.q2options}}" as="opt" hint-placeholder-count="3">
+                          <label style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 9px; border: 1px solid #DDD6C7; background: #fff; cursor: pointer;">
+                            <span style="width: 16px; height: 16px; border-radius: 50%; border: 2px solid #C7C0B2; flex: none;"></span>
+                            <span style="font-size: 13px; color: #3D3A33;">{{opt}}</span>
+                          </label>
+                        </sc-for>
+                      </div>
+                    </div>
+
+                    <!-- las acciones van debajo de todo lo anterior, en el orden en que se usan -->
+                    <div style="display: flex; gap: 10px;">
+                      <button onClick="{{s.submitVerify}}" style="background: #0F2E29; color: #fff; border: none; border-radius: 8px; padding: 10px 18px; font-size: 12px; font-weight: 600;">Enviar respuestas</button>
+                      <button onClick="{{s.cancelVerify}}" style="background: transparent; color: #726C60; border: none; font-size: 12px; font-weight: 600;">Ahora no</button>
+                    </div>
+                  </div>
+                </sc-if>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 24px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+              <h2 style="font-size: 14px; font-weight: 700; color: #1C1B18; margin: 0;">Idiomas</h2>
+              <button onClick="{{addLanguage}}" style="flex: none; font-size: 12px; font-weight: 600; color: #0F2E29; background: #fff; border: 1px solid #DDD6C7; padding: 7px 14px; border-radius: 100px; white-space: nowrap;">+ Agregar idioma</button>
+            </div>
+
+            <sc-if value="{{isAddingLanguage}}" hint-placeholder-val="{{false}}">
+              <div style="display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap;">
+                <input type="text" placeholder="Idioma (ej: Portugués)" style="flex: 1; min-width: 160px; box-sizing: border-box; padding: 9px 12px; border: 1px solid #DDD6C7; border-radius: 8px; font-size: 13px; color: #1C1B18;">
+                <select style="box-sizing: border-box; padding: 9px 12px; border: 1px solid #DDD6C7; border-radius: 8px; font-size: 13px; color: #1C1B18; background: #fff;">
+                  <option>Básico</option>
+                  <option>Intermedio</option>
+                  <option>Avanzado</option>
+                  <option>Nativo</option>
+                </select>
+                <button onClick="{{confirmAddLanguage}}" style="font-size: 12px; font-weight: 600; color: #fff; background: #0F2E29; border: none; padding: 0 16px; border-radius: 8px;">Agregar</button>
+                <button onClick="{{cancelAddLanguage}}" style="font-size: 12px; font-weight: 600; color: #726C60; background: #fff; border: 1px solid #DDD6C7; padding: 0 14px; border-radius: 8px;">Cancelar</button>
+              </div>
+            </sc-if>
+
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <sc-for list="{{languages}}" as="lang" hint-placeholder-count="2">
+                <div style="display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: #FAF8F3; border-radius: 10px;">
+                  <span style="font-size: 13px; font-weight: 600; color: #1C1B18; flex: 1;">{{lang.name}}</span>
+                  <span style="font-size: 11px; font-weight: 700; color: {{lang.levelColor}}; background: {{lang.levelBg}}; padding: 5px 10px; border-radius: 100px;">{{lang.level}}</span>
+                  <sc-if value="{{lang.hasCert}}" hint-placeholder-val="{{false}}">
+                    <span style="font-size: 11px; color: #9B9488;">{{lang.certLabel}}</span>
+                  </sc-if>
+                  <sc-if value="{{lang.showAddCert}}" hint-placeholder-val="{{false}}">
+                    <button style="font-size: 11px; font-weight: 600; color: #0F2E29; background: #fff; border: 1px solid #DDD6C7; padding: 5px 10px; border-radius: 100px;">+ Sumar certificación</button>
+                  </sc-if>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+
+          <div>
+            <h2 style="font-size: 14px; font-weight: 700; color: #1C1B18; margin: 0 0 10px;">Experiencia</h2>
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div style="display: flex; gap: 14px;">
+                <div style="width: 36px; height: 36px; border-radius: 9px; background: #0F2E29; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex: none;">MF</div>
+                <div>
+                  <div style="font-size: 13px; font-weight: 700; color: #1C1B18;">Full Stack Developer — Práctica Profesional Supervisada</div>
+                  <div style="font-size: 12px; color: #9B9488; margin-bottom: 4px;">Mindfactory · 2025 – presente</div>
+                  <div style="font-size: 13px; color: #4D4A42; line-height: 1.5;">Desarrollo de features end-to-end, integración con SonarQube y pipelines de CI/CD.</div>
+                </div>
+              </div>
+              <div style="display: flex; gap: 14px;">
+                <div style="width: 36px; height: 36px; border-radius: 9px; background: #726C60; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex: none;">UN</div>
+                <div>
+                  <div style="font-size: 13px; font-weight: 700; color: #1C1B18;">Proyectos universitarios</div>
+                  <div style="font-size: 12px; color: #9B9488; margin-bottom: 4px;">Sistemas de gestión de pagos, RRHH y lotería</div>
+                  <div style="font-size: 13px; color: #4D4A42; line-height: 1.5;">Desarrollo web full stack en equipo, con foco en back-end y modelado de datos.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </sc-if>
+
+      <!-- ============ TAB: MIS CVs ============ -->
+      <sc-if value="{{isCvs}}" hint-placeholder-val="{{false}}">
+        <div class="scrollarea" style="flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 22px 36px 28px;">
+
+          <div style="margin-bottom: 20px;">
+            <div style="font-size: 13px; font-weight: 700; color: #1C1B18; margin-bottom: 10px;">CV base</div>
+            <div style="display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: #F7F4EC; border-radius: 12px;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2E29" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none;"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path><path d="M14 2v6h6"></path></svg>
+              <div style="flex: 1;">
+                <div style="font-size: 13px; font-weight: 600; color: #1C1B18;">Curriculum_Vitae-Sol_Checa.docx</div>
+                <div style="font-size: 12px; color: #9B9488;">Última actualización: hace 5 días · fuente de todas las versiones adaptadas</div>
+              </div>
+              <button style="flex: none; font-size: 12px; font-weight: 600; color: #3D3A33; background: #fff; border: 1px solid #DDD6C7; padding: 8px 14px; border-radius: 8px;">Reemplazar</button>
+            </div>
+          </div>
+
+          <div>
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+              <div style="font-size: 13px; font-weight: 700; color: #1C1B18;">Versiones adaptadas automáticamente</div>
+              <button onClick="{{generateCv}}" style="font-size: 12px; font-weight: 600; color: #fff; background: #0F2E29; border: none; padding: 8px 14px; border-radius: 8px;">+ Generar para una oferta</button>
+            </div>
+            <p style="font-size: 12px; color: #9B9488; margin: 0 0 14px; max-width: 560px;">Reordena y resalta lo que ya está en tu CV base según el puesto — nunca agrega una skill o experiencia que no hayas puesto vos.</p>
+
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <sc-for list="{{cvVersions}}" as="v" hint-placeholder-count="3">
+                <div style="display: flex; align-items: center; gap: 14px; padding: 13px 18px; border: 1px solid #EFEBE0; border-radius: 12px;">
+                  <div style="width: 36px; height: 36px; border-radius: 9px; background: {{v.logoBg}}; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex: none;">{{v.initials}}</div>
+                  <div style="flex: 1; min-width: 0;">
+                    <div style="font-size: 13px; font-weight: 600; color: #1C1B18;">{{v.role}} · {{v.company}}</div>
+                    <div style="font-size: 12px; color: #9B9488;">Generado {{v.date}} · basado en el CV base</div>
+                  </div>
+                  <span style="font-size: 12px; font-weight: 700; color: #1D7A4C; flex: none;">{{v.score}}% match</span>
+                  <button style="flex: none; font-size: 12px; font-weight: 600; color: #3D3A33; background: #fff; border: 1px solid #DDD6C7; padding: 7px 12px; border-radius: 8px;">Ver</button>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+
+        </div>
+      </sc-if>
+
+      <!-- ============ TAB: CARTAS DE PRESENTACIÓN ============ -->
+      <sc-if value="{{isCartas}}" hint-placeholder-val="{{false}}">
+        <div class="scrollarea" style="flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 22px 36px 28px;">
+
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+            <div style="font-size: 13px; font-weight: 700; color: #1C1B18;">Cartas generadas</div>
+            <button onClick="{{generateLetter}}" style="font-size: 12px; font-weight: 600; color: #fff; background: #0F2E29; border: none; padding: 8px 14px; border-radius: 8px;">+ Generar para una oferta</button>
+          </div>
+          <p style="font-size: 12px; color: #9B9488; margin: 0 0 16px; max-width: 560px;">Se redactan automáticamente combinando tu CV base con la descripción del puesto. Siempre las podés editar antes de enviarlas.</p>
+
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <sc-for list="{{letters}}" as="l" hint-placeholder-count="2">
+              <div style="border: 1px solid #EFEBE0; border-radius: 12px; padding: 16px 18px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 32px; height: 32px; border-radius: 8px; background: {{l.logoBg}}; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex: none;">{{l.initials}}</div>
+                    <div>
+                      <div style="font-size: 13px; font-weight: 600; color: #1C1B18;">{{l.role}} · {{l.company}}</div>
+                      <div style="font-size: 11px; color: #9B9488;">Generada {{l.date}}</div>
+                    </div>
+                  </div>
+                  <div style="display: flex; gap: 8px;">
+                    <button style="font-size: 12px; font-weight: 600; color: #3D3A33; background: #fff; border: 1px solid #DDD6C7; padding: 7px 12px; border-radius: 8px;">Editar</button>
+                    <button style="font-size: 12px; font-weight: 600; color: #3D3A33; background: #fff; border: 1px solid #DDD6C7; padding: 7px 12px; border-radius: 8px;">Regenerar</button>
+                  </div>
+                </div>
+                <p style="font-size: 13px; color: #4D4A42; line-height: 1.5; margin: 0;">{{l.preview}}</p>
+              </div>
+            </sc-for>
+          </div>
+
+        </div>
+      </sc-if>
+
+      <!-- ============ TAB: EMPRESAS QUE SIGO ============ -->
+      <sc-if value="{{isEmpresas}}" hint-placeholder-val="{{false}}">
+        <div class="scrollarea" style="flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 22px 36px 28px;">
+
+          <div style="margin-bottom: 24px;">
+            <div style="font-size: 13px; font-weight: 700; color: #1C1B18; margin-bottom: 4px;">Empresas que seguís</div>
+            <p style="font-size: 12px; color: #9B9488; margin: 0 0 14px; max-width: 560px;">Te avisamos cuando publiquen una vacante nueva — sin armar un feed ni una red de contactos, solo las empresas que elegiste.</p>
+
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <sc-for list="{{followedCompanies}}" as="f" hint-placeholder-count="3">
+                <div style="display: flex; align-items: center; gap: 14px; padding: 13px 18px; border: 1px solid #EFEBE0; border-radius: 12px;">
+                  <div style="width: 40px; height: 40px; border-radius: 10px; background: {{f.logoBg}}; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex: none;">{{f.initials}}</div>
+                  <div style="flex: 1; min-width: 0;">
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                      <span style="font-size: 13px; font-weight: 600; color: #1C1B18;">{{f.name}}</span>
+                      <sc-if value="{{f.verified}}" hint-placeholder-val="{{true}}">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="#1C5FA8" stroke="#fff" stroke-width="1.5"><path d="M12 2l2.4 1.9 3-.5 1 2.9 2.7 1.4-.9 3 1.7 2.5-2.4 2 .1 3-3 .4-1.6 2.5-2.9-.9-2.9.9-1.6-2.5-3-.4.1-3-2.4-2 1.7-2.5-.9-3 2.7-1.4 1-2.9 3 .5z"></path></svg>
+                      </sc-if>
+                    </div>
+                    <div style="font-size: 12px; color: #9B9488;">{{f.sector}} · {{f.activeJobs}} ofertas activas</div>
+                  </div>
+                  <span style="font-size: 11px; font-weight: 600; padding: 5px 10px; border-radius: 100px; background: {{f.responseBg}}; color: {{f.responseColor}}; flex: none;">{{f.responseLabel}}</span>
+                  <button style="flex: none; font-size: 12px; font-weight: 600; color: #726C60; background: #fff; border: 1px solid #DDD6C7; padding: 7px 12px; border-radius: 8px;">Dejar de seguir</button>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+
+          <div>
+            <div style="font-size: 13px; font-weight: 700; color: #1C1B18; margin-bottom: 10px;">Sugeridas, basado en tus postulaciones</div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <sc-for list="{{suggestedCompanies}}" as="sg" hint-placeholder-count="2">
+                <div style="display: flex; align-items: center; gap: 14px; padding: 13px 18px; background: #FAF8F3; border-radius: 12px;">
+                  <div style="width: 40px; height: 40px; border-radius: 10px; background: {{sg.logoBg}}; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex: none;">{{sg.initials}}</div>
+                  <div style="flex: 1; min-width: 0;">
+                    <span style="font-size: 13px; font-weight: 600; color: #1C1B18;">{{sg.name}}</span>
+                    <div style="font-size: 12px; color: #9B9488;">{{sg.sector}} · postulaste hace {{sg.since}}</div>
+                  </div>
+                  <button style="flex: none; font-size: 12px; font-weight: 600; color: #fff; background: #0F2E29; border: none; padding: 7px 14px; border-radius: 8px;">+ Seguir</button>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+
+        </div>
+      </sc-if>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tab = this.state.tab ?? 'perfil';
+    const verifyingId = this.state.verifyingId ?? 'nodejs';
+    const verified = this.state.verified ?? { react: true, typescript: true, apisrest: true };
+
+    const tabStyle = (key) => {
+      const active = tab === key;
+      return { color: active ? '#0F2E29' : '#9B9488', border: active ? '#0F2E29' : 'transparent' };
+    };
+    const pPerfil = tabStyle('perfil');
+    const pCvs = tabStyle('cvs');
+    const pCartas = tabStyle('cartas');
+    const pEmpresas = tabStyle('empresas');
+
+    const quizBank = {
+      nodejs: { q1: '¿Qué módulo usarías para manejar rutas HTTP sin un framework?', q1options: ['http', 'fs', 'path'], q2: '¿Qué significa "event loop" en Node.js?', q2options: ['Ciclo de manejo de eventos asíncronos', 'Un bucle for infinito', 'Un tipo de base de datos'] },
+      git: { q1: '¿Qué comando crea una nueva rama y te mueve a ella?', q1options: ['git checkout -b', 'git branch --new', 'git move -b'], q2: '¿Para qué sirve "git rebase"?', q2options: ['Reescribir el historial sobre otra base', 'Eliminar un repositorio', 'Subir un archivo'] },
+      figma: { q1: '¿Qué es un "componente" en Figma?', q1options: ['Un elemento reutilizable con variantes', 'Un plugin', 'Un tipo de exportación'], q2: '¿Qué es "auto layout"?', q2options: ['Un sistema de distribución automática de elementos', 'Una fuente tipográfica', 'Un formato de archivo'] },
+    };
+
+    const skillList = [
+      { key: 'react', name: 'React' },
+      { key: 'typescript', name: 'TypeScript' },
+      { key: 'nodejs', name: 'Node.js' },
+      { key: 'apisrest', name: 'APIs REST' },
+      { key: 'git', name: 'Git' },
+      { key: 'figma', name: 'Figma' },
+    ];
+
+    const skills = skillList.map(s => {
+      const isVerifying = verifyingId === s.key;
+      const quiz = quizBank[s.key] || {};
+      return {
+        ...s,
+        verified: !!verified[s.key],
+        showVerifyBtn: !verified[s.key] && !isVerifying,
+        isVerifying,
+        demoQuiz: s.key === 'nodejs',
+        ...quiz,
+        startVerify: () => this.setState({ verifyingId: s.key }),
+        cancelVerify: () => this.setState({ verifyingId: null }),
+        submitVerify: () => this.setState({ verifyingId: null, verified: { ...verified, [s.key]: true } }),
+      };
+    });
+
+    const isAddingSkill = this.state.isAddingSkill ?? false;
+    const isAddingLanguage = this.state.isAddingLanguage ?? false;
+
+    const languageList = [
+      { key: 'espanol', name: 'Español', level: 'Nativo', hasCert: false, showAddCert: false },
+      { key: 'ingles', name: 'Inglés', level: 'Intermedio', hasCert: false, showAddCert: true },
+    ];
+    const levelMeta = {
+      'Básico':     { bg: '#ECE7DA', color: '#726C60' },
+      'Intermedio': { bg: '#FBF1DE', color: '#B3760A' },
+      'Avanzado':   { bg: '#E7F1FB', color: '#1C5FA8' },
+      'Nativo':     { bg: '#E6F6EC', color: '#1D7A4C' },
+    };
+    const languages = languageList.map(l => ({
+      ...l,
+      levelBg: levelMeta[l.level].bg,
+      levelColor: levelMeta[l.level].color,
+      certLabel: l.hasCert ? 'Certificado' : '',
+    }));
+
+    return {
+      isPerfil: tab === 'perfil',
+      isCvs: tab === 'cvs',
+      isCartas: tab === 'cartas',
+      isEmpresas: tab === 'empresas',
+      tabPerfil: () => this.setState({ tab: 'perfil' }),
+      tabCvs: () => this.setState({ tab: 'cvs' }),
+      tabCartas: () => this.setState({ tab: 'cartas' }),
+      tabEmpresas: () => this.setState({ tab: 'empresas' }),
+      colorPerfil: pPerfil.color, borderPerfil: pPerfil.border,
+      colorCvs: pCvs.color, borderCvs: pCvs.border,
+      colorCartas: pCartas.color, borderCartas: pCartas.border,
+      colorEmpresas: pEmpresas.color, borderEmpresas: pEmpresas.border,
+
+      followedCompanies: [
+        { name: 'Bluecore Labs', sector: 'Software', initials: 'BL', logoBg: '#1D7A4C', verified: true, activeJobs: 3, responseLabel: 'Responde rápido', responseBg: '#E6F6EC', responseColor: '#1D7A4C' },
+        { name: 'Nimbus Software', sector: 'Software', initials: 'NS', logoBg: '#1C5FA8', verified: true, activeJobs: 1, responseLabel: 'Responde rápido', responseBg: '#E6F6EC', responseColor: '#1D7A4C' },
+        { name: 'Orbita Digital', sector: 'Agencia digital', initials: 'OD', logoBg: '#D97757', verified: true, activeJobs: 2, responseLabel: 'Respuesta lenta', responseBg: '#FBF1DE', responseColor: '#B3760A' },
+      ],
+      suggestedCompanies: [
+        { name: 'Atlas Tech', sector: 'Software', initials: 'AT', logoBg: '#B3760A', since: '4 días' },
+        { name: 'Grupo Vértice', sector: 'Consultora IT', initials: 'GV', logoBg: '#726C60', since: '3 semanas' },
+      ],
+
+      skills,
+      isAddingSkill,
+      addSkill: () => this.setState({ isAddingSkill: true }),
+      confirmAddSkill: () => this.setState({ isAddingSkill: false }),
+      cancelAddSkill: () => this.setState({ isAddingSkill: false }),
+
+      languages,
+      isAddingLanguage,
+      addLanguage: () => this.setState({ isAddingLanguage: true }),
+      confirmAddLanguage: () => this.setState({ isAddingLanguage: false }),
+      cancelAddLanguage: () => this.setState({ isAddingLanguage: false }),
+
+      generateCv: () => {},
+      cvVersions: [
+        { role: 'Full Stack Developer', company: 'Bluecore Labs', date: 'hoy', score: 86, initials: 'BL', logoBg: '#1D7A4C' },
+        { role: 'React Developer SSR', company: 'Atlas Tech', date: 'hace 4 días', score: 78, initials: 'AT', logoBg: '#B3760A' },
+        { role: 'Frontend Engineer', company: 'Orbita Digital', date: 'hace 1 semana', score: 68, initials: 'OD', logoBg: '#D97757' },
+      ],
+
+      generateLetter: () => {},
+      letters: [
+        { role: 'Full Stack Developer', company: 'Bluecore Labs', date: 'hoy', initials: 'BL', logoBg: '#1D7A4C', preview: 'Me postulo a la búsqueda de Full Stack Developer en Bluecore Labs porque mi experiencia en Mindfactory integrando pipelines de CI/CD y construyendo features end-to-end con React y Node.js se alinea directamente con lo que describen en la oferta...' },
+        { role: 'React Developer SSR', company: 'Atlas Tech', date: 'hace 4 días', initials: 'AT', logoBg: '#B3760A', preview: 'Escribo para postularme a la posición de React Developer SSR. Durante mi práctica profesional en Mindfactory trabajé con React en proyectos con renderizado del lado del servidor, lo que me permitió...' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

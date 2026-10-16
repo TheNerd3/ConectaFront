@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Panel de administración — Usuarios</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body { margin: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  a { color: #0F4C44; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; }
+  .icon-btn { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex: none; }
+  .scrollarea::-webkit-scrollbar { width: 8px; }
+  .scrollarea::-webkit-scrollbar-thumb { background: #DDD6C7; border-radius: 10px; }
+  input::placeholder { color: #9B9488; }
+  input:focus { outline: none; border-color: #2B2A28 !important; }
+</style>
+</helmet>
+
+<div style="width: 100%; height: 900px; background: #EDE7D8; padding: 36px; box-sizing: border-box; display: flex; align-items: flex-start; justify-content: center; overflow: hidden;">
+
+  <div style="width: 100%; max-width: 1320px; height: 100%; background: #2B2A28; border-radius: 28px; padding: 14px; display: flex; gap: 14px; box-shadow: 0 30px 60px -20px rgba(0,0,0,0.4); box-sizing: border-box;">
+
+    <!-- icon-only rail -->
+    <div style="flex: 0 0 64px; display: flex; flex-direction: column; align-items: center; padding: 10px 0; gap: 10px; position: relative;">
+      <div style="width: 34px; height: 34px; border-radius: 9px; background: #0F2E29; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; flex: none;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"></path></svg>
+      </div>
+
+      <a href="AdminDashboard.dc.html" class="icon-btn" style="color: rgba(255,255,255,0.4);" title="Resumen">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"></rect><rect x="14" y="3" width="7" height="5" rx="1"></rect><rect x="14" y="12" width="7" height="9" rx="1"></rect><rect x="3" y="16" width="7" height="5" rx="1"></rect></svg>
+      </a>
+      <a href="AdminEmpresas.dc.html" class="icon-btn" style="color: rgba(255,255,255,0.4);" title="Empresas y ofertas">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"></rect><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"></path></svg>
+      </a>
+
+      <!-- ACTIVE: Usuarios -->
+      <div style="width: 60px; height: 48px; border-radius: 14px; background: #FFFFFF; color: #2B2A28; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 14px rgba(0,0,0,0.25); flex: none;" title="Usuarios">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 00-3-3.87"></path><path d="M16 3.13a4 4 0 010 7.75"></path></svg>
+      </div>
+
+      <div style="margin-top: auto;">
+        <div style="width: 34px; height: 34px; border-radius: 9px; background: #C9A227; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #2B2A28;">AD</div>
+      </div>
+    </div>
+
+    <!-- white content panel -->
+    <div style="flex: 1 1 0; min-width: 0; height: 100%; background: #FFFFFF; border-radius: 20px; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden;">
+
+      <!-- fixed header -->
+      <div style="padding: 28px 36px 0; flex: none;">
+        <h1 style="font-size: 22px; font-weight: 700; color: #1C1B18; margin: 0 0 2px;">Usuarios</h1>
+        <p style="font-size: 13px; color: #726C60; margin: 0 0 16px;">Buscar cuentas y suspenderlas si hace falta</p>
+
+        <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 4px;">
+          <input type="text" placeholder="Buscar por nombre o email" style="flex: 1; max-width: 320px; box-sizing: border-box; padding: 10px 14px; border: 1px solid #DDD6C7; border-radius: 10px; font-size: 13px; background: #fff; color: #1C1B18;">
+          <div style="display: flex; background: #F0ECE1; border-radius: 10px; padding: 3px;">
+            <button onClick="{{selectAll}}" style="border: none; border-radius: 7px; padding: 8px 14px; font-size: 12.5px; font-weight: 600; background: {{allBg}}; color: {{allColor}};">Todos</button>
+            <button onClick="{{selectEmployees}}" style="border: none; border-radius: 7px; padding: 8px 14px; font-size: 12.5px; font-weight: 600; background: {{employeesBg}}; color: {{employeesColor}};">Empleados</button>
+            <button onClick="{{selectEmployers}}" style="border: none; border-radius: 7px; padding: 8px 14px; font-size: 12.5px; font-weight: 600; background: {{employersBg}}; color: {{employersColor}};">Empleadores</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- scrollable list -->
+      <div class="scrollarea" style="flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 16px 36px 28px;">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <sc-for list="{{users}}" as="u" hint-placeholder-count="6">
+            <div style="display: flex; align-items: center; gap: 14px; background: #F7F4EC; border-radius: 12px; padding: 12px 16px;">
+              <div style="width: 32px; height: 32px; border-radius: 8px; background: {{u.avatarBg}}; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex: none;">{{u.initials}}</div>
+              <div style="flex: 1; min-width: 0;">
+                <div style="font-size: 13px; font-weight: 600; color: #1C1B18;">{{u.name}}</div>
+                <div style="font-size: 12px; color: #9B9488;">{{u.email}} · alta {{u.since}}</div>
+              </div>
+              <span style="font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 100px; background: {{u.roleBg}}; color: {{u.roleColor}}; flex: none;">{{u.roleLabel}}</span>
+              <span style="font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 100px; background: {{u.statusBg}}; color: {{u.statusColor}}; flex: none;">{{u.statusLabel}}</span>
+              <button onClick="{{u.toggleStatus}}" style="font-size: 12px; font-weight: 600; color: {{u.actionColor}}; background: #fff; border: 1px solid #DDD6C7; padding: 6px 12px; border-radius: 8px; flex: none;">{{u.actionLabel}}</button>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const filter = this.state.filter ?? 'all';
+    const suspended = this.state.suspended ?? {};
+
+    const usersRaw = [
+      { id: 'u1', name: 'Sol Checa', email: 'sol@mail.com', since: '4 meses', role: 'employee', avatarBg: '#D97757', initials: 'SC' },
+      { id: 'u2', name: 'Marina Ibáñez', email: 'marina.i@mail.com', since: '2 meses', role: 'employee', avatarBg: '#1C5FA8', initials: 'MI' },
+      { id: 'u3', name: 'Bluecore Labs', email: 'rrhh@bluecorelabs.com', since: '7 meses', role: 'employer', avatarBg: '#0F2E29', initials: 'BL' },
+      { id: 'u4', name: 'Nicolás Paz', email: 'nico.paz@mail.com', since: '1 mes', role: 'employee', avatarBg: '#B3760A', initials: 'NP' },
+      { id: 'u5', name: 'Estudio Palermo', email: 'contacto@estudiopalermo.com', since: '3 meses', role: 'employer', avatarBg: '#726C60', initials: 'EP' },
+      { id: 'u6', name: 'Agustina Vera', email: 'aguvera@mail.com', since: '5 días', role: 'employee', avatarBg: '#1D7A4C', initials: 'AV' },
+    ];
+
+    const filtered = usersRaw.filter(u => filter === 'all' || u.role === filter);
+
+    const users = filtered.map(u => {
+      const isSuspended = !!suspended[u.id];
+      return {
+        ...u,
+        roleLabel: u.role === 'employee' ? 'Empleado' : 'Empleador',
+        roleBg: u.role === 'employee' ? '#E6F6EC' : '#FBEEE6',
+        roleColor: u.role === 'employee' ? '#1D7A4C' : '#A6472C',
+        statusLabel: isSuspended ? 'Suspendido' : 'Activo',
+        statusBg: isSuspended ? '#F0ECE1' : '#E7F1FB',
+        statusColor: isSuspended ? '#726C60' : '#1A4F8A',
+        actionLabel: isSuspended ? 'Reactivar' : 'Suspender',
+        actionColor: isSuspended ? '#1D7A4C' : '#A6472C',
+        toggleStatus: () => this.setState({ suspended: { ...suspended, [u.id]: !isSuspended } }),
+      };
+    });
+
+    return {
+      users,
+      selectAll: () => this.setState({ filter: 'all' }),
+      selectEmployees: () => this.setState({ filter: 'employee' }),
+      selectEmployers: () => this.setState({ filter: 'employer' }),
+      allBg: filter === 'all' ? '#fff' : 'transparent',
+      allColor: filter === 'all' ? '#1C1B18' : '#8A8475',
+      employeesBg: filter === 'employee' ? '#fff' : 'transparent',
+      employeesColor: filter === 'employee' ? '#1C1B18' : '#8A8475',
+      employersBg: filter === 'employer' ? '#fff' : 'transparent',
+      employersColor: filter === 'employer' ? '#1C1B18' : '#8A8475',
+    };
+  }
+}
+</script>
+</body>
+</html>

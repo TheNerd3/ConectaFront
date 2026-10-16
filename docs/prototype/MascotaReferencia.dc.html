@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Referencia — Mascota</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body { margin: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  .scrollarea::-webkit-scrollbar { width: 8px; }
+  .scrollarea::-webkit-scrollbar-thumb { background: #DDD6C7; border-radius: 10px; }
+</style>
+</helmet>
+
+<div style="width: 100%; height: 900px; background: #EDE7D8; padding: 36px; box-sizing: border-box; display: flex; align-items: flex-start; justify-content: center; overflow: hidden;">
+
+  <div style="width: 100%; max-width: 1320px; height: 100%; background: #0F2E29; border-radius: 28px; padding: 14px; box-sizing: border-box; box-shadow: 0 30px 60px -20px rgba(0,0,0,0.4);">
+
+    <div style="width: 100%; height: 100%; background: #FFFFFF; border-radius: 20px; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden;">
+
+      <div style="padding: 28px 36px 0; flex: none;">
+        <h1 style="font-size: 22px; font-weight: 700; color: #1C1B18; margin: 0 0 2px;">Mascota — hoja de referencia</h1>
+        <p style="font-size: 13px; color: #726C60; margin: 0 0 16px;">Alien verde de 3 ojos, chaleco naranja. Todos los estados guardados hasta ahora, con cuándo se usa cada uno.</p>
+      </div>
+
+      <div class="scrollarea" style="flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 4px 36px 48px;">
+        <div style="display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 12px;">
+          <sc-for list="{{states}}" as="s" hint-placeholder-count="13">
+            <div style="background: #F7F4EC; border-radius: 14px; padding: 10px; display: flex; flex-direction: column; align-items: center; gap: 6px; box-sizing: border-box;">
+              <img src="{{s.url}}" alt="{{s.label}}" style="width: 100%; height: 100px; object-fit: contain; border-radius: 8px; background: #fff; display: block;">
+              <div style="text-align: center;">
+                <div style="font-size: 10.5px; font-weight: 700; color: #B3760A; margin-bottom: 2px;">{{s.num}}</div>
+                <div style="font-size: 11.5px; font-weight: 600; color: #1C1B18; line-height: 1.25;">{{s.label}}</div>
+                <div style="font-size: 10px; color: #9B9488; margin-top: 3px; line-height: 1.25;">{{s.usage}}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      states: [
+        { num: '1', label: 'Le gusta el currículum', usage: 'Analizador de CV — resultado positivo', url: '/_blob/ee356ae8ea0f0018f408d22bf9a6e6c4' },
+        { num: '2', label: 'No le gusta', usage: 'Analizador de CV — resultado negativo', url: '/_blob/5afe33c4d5ec3a13073e4e64f0ff8be8' },
+        { num: '3', label: 'Analizando (pose A)', usage: 'Analizador de CV — mientras procesa', url: '/_blob/61ea6633b044225c221722757facde7f' },
+        { num: '4', label: 'Analizando (pose B)', usage: 'Analizador de CV — alterna con la pose A', url: '/_blob/c681e510baa74d5a7623d6156239b9df' },
+        { num: '5', label: 'Faltan datos', usage: 'Analizador de CV — no pudo definir el resultado', url: '/_blob/0af594e690b853bb7da4553b39800f49' },
+        { num: '6', label: 'Currículum perfecto (100)', usage: 'Analizador de CV — match ideal', url: '/_blob/6ab6ff2670376e82646c447da50033f5' },
+        { num: '7', label: 'Celebración', usage: 'Consiguió el trabajo (contratado)', url: '/_blob/3fe57d2b16f7848f1b8cdee13427bdd3' },
+        { num: '8', label: 'Triste', usage: 'Sin matches en la búsqueda de trabajos', url: '/_blob/0dcbc2af442a7a1c38d0857a8a423bc5' },
+        { num: '9', label: 'Saludando', usage: 'Al ingresar después del login', url: '/_blob/3390542a43b4ae539b5f5dd9e97d7c30' },
+        { num: '10', label: 'Entrevista seteada', usage: 'Al confirmar una entrevista agendada', url: '/_blob/45872ca28913cb374a5159ab1487e8b5' },
+        { num: '11', label: 'Verificando / escribiendo carta', usage: 'Verificación de idiomas o carta de presentación', url: '/_blob/6784a225d32c72feaa7e419dc15f4433' },
+        { num: '12', label: 'Match ≥ 60%', usage: 'Buen match con una vacante', url: '/_blob/831bb94cb8533080a054d60d4f3e74da' },
+        { num: '13', label: 'Match ≤ 59%', usage: 'Match bajo con una vacante', url: '/_blob/d53f17ca2defb689e31ebaeeebb57608' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

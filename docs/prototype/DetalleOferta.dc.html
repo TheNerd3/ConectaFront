@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Detalle de oferta</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body { margin: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  a { color: #0F4C44; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; }
+  .icon-btn { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex: none; }
+  .scrollarea::-webkit-scrollbar { width: 8px; }
+  .scrollarea::-webkit-scrollbar-thumb { background: #DDD6C7; border-radius: 10px; }
+</style>
+</helmet>
+
+<div style="width: 100%; height: 900px; background: #EDE7D8; padding: 36px; box-sizing: border-box; display: flex; align-items: flex-start; justify-content: center; overflow: hidden;">
+
+  <div style="width: 100%; max-width: 1320px; height: 100%; background: #0F2E29; border-radius: 28px; padding: 14px; display: flex; gap: 14px; box-shadow: 0 30px 60px -20px rgba(15,46,41,0.35); box-sizing: border-box;">
+
+    <!-- icon-only rail -->
+    <div style="flex: 0 0 64px; display: flex; flex-direction: column; align-items: center; padding: 10px 0; gap: 10px; position: relative;">
+      <div style="width: 34px; height: 34px; border-radius: 9px; background: #D97757; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; flex: none;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F2E29" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"></path></svg>
+      </div>
+
+      <!-- ACTIVE item: Buscar empleo (detail belongs to the search flow) -->
+      <div style="width: 60px; height: 48px; border-radius: 14px; background: #FFFFFF; color: #0F2E29; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 14px rgba(0,0,0,0.2); flex: none;" title="Buscar empleo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="M21 21l-4.35-4.35"></path></svg>
+      </div>
+
+      <a href="Dashboard.dc.html" class="icon-btn" style="color: #9FBFB6;" title="Mis postulaciones">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path></svg>
+      </a>
+      <div class="icon-btn" style="color: #9FBFB6;" title="Calendario">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>
+      </div>
+      <a href="AnalizadorCV.dc.html" class="icon-btn" style="color: #9FBFB6;" title="Analizador de CV">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path><path d="M14 2v6h6"></path><path d="M9 15l2 2 4-4"></path></svg>
+      </a>
+      <a href="MiPerfil.dc.html" class="icon-btn" style="color: #9FBFB6;" title="Mi perfil">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+      </a>
+      <a href="Chat.dc.html" class="icon-btn" style="color: #9FBFB6;" title="Mensajes">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"></path></svg>
+      </a>
+      <div class="icon-btn" style="color: #9FBFB6;" title="Configuración">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.65 1.65 0 004.6 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.6a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"></path></svg>
+      </div>
+
+      <div style="margin-top: auto;">
+        <div style="width: 34px; height: 34px; border-radius: 50%; background: #D97757; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #fff;">SC</div>
+      </div>
+    </div>
+
+    <!-- white content panel -->
+    <div style="flex: 1 1 0; min-width: 0; height: 100%; background: #FFFFFF; border-radius: 20px; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden;">
+
+      <!-- fixed header -->
+      <div style="padding: 28px 36px 20px; flex: none; border-bottom: 1px solid #EFEBE0;">
+        <a href="BuscarEmpleo.dc.html" style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #726C60; margin-bottom: 16px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg>
+          Volver a la búsqueda
+        </a>
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+          <div style="display: flex; gap: 16px; align-items: center; min-width: 0;">
+            <div style="width: 52px; height: 52px; border-radius: 12px; background: #1D7A4C; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700; flex: none;">BL</div>
+            <div style="min-width: 0;">
+              <h1 style="font-size: 21px; font-weight: 700; color: #1C1B18; margin: 0 0 4px;">Full Stack Developer</h1>
+              <div style="font-size: 14px; color: #726C60; display: flex; align-items: center; gap: 6px;">
+                Bluecore Labs
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#1C5FA8" stroke="#fff" stroke-width="1.5"><path d="M12 2l2.4 1.9 3-.5 1 2.9 2.7 1.4-.9 3 1.7 2.5-2.4 2 .1 3-3 .4-1.6 2.5-2.9-.9-2.9.9-1.6-2.5-3-.4.1-3-2.4-2 1.7-2.5-.9-3 2.7-1.4 1-2.9 3 .5z"></path><path d="M9 12l2 2 4-4" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                <span style="color: #9B9488;">· Empresa verificada</span>
+              </div>
+            </div>
+          </div>
+          <div style="text-align: right; flex: none;">
+            <div style="font-size: 28px; font-weight: 700; color: #1D7A4C;">86%</div>
+            <div style="font-size: 12px; color: #9B9488;">de match con tu perfil</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- scrollable body: two columns -->
+      <div class="scrollarea" style="flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 24px 36px 28px;">
+        <div style="display: grid; grid-template-columns: 1.6fr 1fr; gap: 24px;">
+
+          <!-- main column -->
+          <div style="display: flex; flex-direction: column; gap: 22px;">
+            <div>
+              <h2 style="font-size: 15px; font-weight: 700; color: #1C1B18; margin: 0 0 10px;">Descripción del puesto</h2>
+              <p style="font-size: 14px; line-height: 1.6; color: #4D4A42; margin: 0;">
+                Buscamos una/un Full Stack Developer para sumarse a un equipo que mantiene y evoluciona productos internos. Trabajarás con un stack moderno, revisión de código entre pares y entregas continuas. El proceso de selección lo lleva una persona del equipo técnico, no un filtro automático: todas las postulaciones se leen.
+              </p>
+            </div>
+            <div>
+              <h2 style="font-size: 15px; font-weight: 700; color: #1C1B18; margin: 0 0 10px;">Requisitos</h2>
+              <ul style="margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.7; color: #4D4A42;">
+                <li>3+ años de experiencia con React y Node.js</li>
+                <li>Experiencia consumiendo e integrando APIs REST</li>
+                <li>Manejo de Git y flujo de trabajo colaborativo</li>
+                <li>Deseable: experiencia con CI/CD y testing automatizado</li>
+                <li>Inglés nivel intermedio para lectura de documentación</li>
+              </ul>
+            </div>
+            <div>
+              <h2 style="font-size: 15px; font-weight: 700; color: #1C1B18; margin: 0 0 10px;">Por qué coincide con tu perfil</h2>
+              <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <span style="font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 100px; background: #E6F6EC; color: #1D7A4C;">React ✓</span>
+                <span style="font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 100px; background: #E6F6EC; color: #1D7A4C;">Node.js ✓</span>
+                <span style="font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 100px; background: #E6F6EC; color: #1D7A4C;">APIs REST ✓</span>
+                <span style="font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 100px; background: #FBF1DE; color: #B3760A;">CI/CD — a reforzar</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- sidebar column -->
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div style="background: #F7F4EC; border-radius: 16px; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px;">
+              <div style="display: flex; justify-content: space-between; font-size: 13px;"><span style="color: #9B9488;">Modalidad</span><span style="font-weight: 600; color: #1C1B18;">Híbrido</span></div>
+              <div style="display: flex; justify-content: space-between; font-size: 13px;"><span style="color: #9B9488;">Ubicación</span><span style="font-weight: 600; color: #1C1B18;">Buenos Aires, AR</span></div>
+              <div style="display: flex; justify-content: space-between; font-size: 13px;"><span style="color: #9B9488;">Rango salarial</span><span style="font-weight: 600; color: #1C1B18;">AR$ 1.6M – 2.0M</span></div>
+              <div style="display: flex; justify-content: space-between; font-size: 13px;"><span style="color: #9B9488;">Publicada</span><span style="font-weight: 600; color: #1C1B18;">Hace 1 día</span></div>
+            </div>
+
+            <div style="background: #E6F6EC; border-radius: 16px; padding: 16px 18px; display: flex; gap: 12px; align-items: flex-start;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1D7A4C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 1px;"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+              <div>
+                <div style="font-size: 13px; font-weight: 700; color: #19613D;">Responde rápido</div>
+                <div style="font-size: 12px; color: #2F6B4A; margin-top: 2px;">Tiempo promedio de respuesta: 2 días</div>
+              </div>
+            </div>
+
+            <button style="width: 100%; padding: 14px 0; border: none; border-radius: 10px; background: #0F2E29; color: #fff; font-size: 15px; font-weight: 600;">
+              Postularme
+            </button>
+            <button style="width: 100%; padding: 12px 0; border: 1px solid #DDD6C7; border-radius: 10px; background: #fff; color: #3D3A33; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"></path></svg>
+              Seguir a esta empresa
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
