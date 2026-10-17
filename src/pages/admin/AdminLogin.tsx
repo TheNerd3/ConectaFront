@@ -2,7 +2,7 @@ import { useState, type FormEvent } from 'react';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthLayout, type BrandContent } from '../../components/auth/AuthLayout';
 import { FormAlert } from '../../components/auth/FormAlert';
-import { Icon } from '../../components/auth/Icon';
+import { Icon } from '../../components/ui/Icon';
 import { PasswordField } from '../../components/auth/PasswordField';
 import { TextField } from '../../components/auth/TextField';
 import {

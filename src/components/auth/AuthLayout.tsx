@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Icon, type IconName } from './Icon';
+import { Icon, type IconName } from '../ui/Icon';
 
 export type AuthTheme = 'employee' | 'employer' | 'admin';
 

@@ -1,5 +1,5 @@
 import { useState, type InputHTMLAttributes } from 'react';
-import { Icon } from './Icon';
+import { Icon } from '../ui/Icon';
 import { TextField } from './TextField';
 
 interface Props extends Omit<InputHTMLAttributes<HTMLInputElement>, 'id' | 'type'> {
